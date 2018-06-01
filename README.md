@@ -1,13 +1,13 @@
 # Project Name
 
-> Project description
+> This repo contains the review module for Airbnb.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/project-nomad/review-module
+  - https://github.com/project-nomad/image-carousel-module
+  - https://github.com/project-nomad/booking-module/
+  - https://github.com/project-nomad/listing-description-module
 
 ## Table of Contents
 
