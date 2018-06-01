@@ -33,9 +33,9 @@ CREATE TABLE reviews (
   review_body TEXT NOT NULL,
   review_date DATE NOT NULL,
 
-  response_date DATE NOT NULL,
-  response_owner_id INT NOT NULL,
-  response_body TEXT NOT NULL,
+  response_date DATE DEFAULT NULL,
+  response_owner_id INT DEFAULT NULL,
+  response_body TEXT DEFAULT NULL,
 
   PRIMARY KEY (id),
   FOREIGN KEY (listing_id) REFERENCES listings(id),
