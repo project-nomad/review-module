@@ -7,7 +7,7 @@ CREATE DATABASE project_nomad_reviews;
 USE project_nomad_reviews;
 
 CREATE TABLE listings (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL,
   PRIMARY KEY (id)
 );
 
