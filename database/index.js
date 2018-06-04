@@ -27,5 +27,33 @@ var getOverview = (listingId, callback) => {
   });
 };
 
+var getReviews = (listingId, callback) => {
+  var query = `
+    SELECT
+      (rating_accuracy + rating_communication + rating_cleanliness 
+        + rating_location + rating_checkin + rating_value) / 6 AS avg_rating,
+      DATE_FORMAT(review_date, "%M %Y") AS review_date,
+      user.username AS review_username,
+      review_body,
+      DATE_FORMAT(response_date, "%M %Y") AS response_date,
+      host.username AS host_username,
+      response_body
+    FROM reviews
+    JOIN users AS user
+      ON reviews.review_user_id=user.id
+    JOIN users AS host
+      ON reviews.response_owner_id=host.id
+    WHERE listing_id = ${listingId}
+  `;
+
+  connection.query( query, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.getOverview = getOverview;
-// module.exports.getReviews = getReviews;
+module.exports.getReviews = getReviews;

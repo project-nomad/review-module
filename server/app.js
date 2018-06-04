@@ -17,4 +17,16 @@ app.get('/reviews/listingId/:listingId', (req, res) => {
   });
 });
 
+// gets all reviews
+app.get('/reviews/listingId/:listingId/reviews', (req, res) => {
+  db.getReviews( req.params.listingId, (err, data) => {
+    if (err) {
+      res.status(500);
+    } else {
+      res.status(200);
+      res.send(data);
+    }
+  });
+});
+
 module.exports = app;
