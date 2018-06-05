@@ -34,11 +34,15 @@ var getReviews = (listingId, callback) => {
         + rating_location + rating_checkin + rating_value) / 6 AS avg_rating,
       DATE_FORMAT(review_date, "%M %Y") AS review_date,
       user.username AS review_username,
-      CONCAT("https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/", user.profile_pic_id, ".jpg") AS user_pic_url,
+      CONCAT("https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/", 
+        user.profile_pic_id, ".jpg") 
+        AS user_pic_url,
       review_body,
       DATE_FORMAT(response_date, "%M %Y") AS response_date,
       host.username AS host_username,
-      CONCAT("https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/", host.profile_pic_id, ".jpg") AS host_pic_url,
+      CONCAT("https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/", 
+        host.profile_pic_id, ".jpg") 
+        AS host_pic_url,
       response_body
     FROM reviews
     JOIN users AS user
