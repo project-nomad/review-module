@@ -27,7 +27,7 @@ describe('Test GET /reviews/listingId/1', () => {
     });
   });
 
-  test('It should send aggregate over ratings for 1 listing', (done) => {
+  test('It should send aggregate overview ratings for 1 listing', (done) => {
     request(app).get('/reviews/listingId/1').then((response) => {
       expect(response.body.length).toBe(1);
       done();
