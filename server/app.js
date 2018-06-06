@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, '/../public')));
 app.get('/reviews/listingId/:listingId', (req, res) => {
   db.getOverview( req.params.listingId, (err, data) => {
     if (err) {
-      res.status(500);
+      res.status(500).end();
     } else {
       res.status(200);
       res.send(data);
@@ -21,7 +21,7 @@ app.get('/reviews/listingId/:listingId', (req, res) => {
 app.get('/reviews/listingId/:listingId/reviews', (req, res) => {
   db.getReviews( req.params.listingId, (err, data) => {
     if (err) {
-      res.status(500);
+      res.status(500).end();
     } else {
       res.status(200);
       res.send(data);

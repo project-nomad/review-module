@@ -284,3 +284,21 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 });
+
+describe('Test GET /reviews/listingId/:listingId', () => {
+  test('It should respond with a 500 status code', (done) => {
+    request(app).get('/reviews/listingId/1 AND').then((response) => {
+      expect(response.statusCode).toBe(500);
+      done();
+    });
+  });
+});
+
+describe('Test GET /reviews/listingId/:listingId/reviews', () => {
+  test('It should respond with a 500 status code', (done) => {
+    request(app).get('/reviews/listingId/1 AND/reviews').then((response) => {
+      expect(response.statusCode).toBe(500);
+      done();
+    });
+  });
+});
