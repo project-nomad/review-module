@@ -10,7 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "serve": "nodemon server/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -33,6 +33,7 @@
     "jest": "^23.1.0",
     "nodemon": "^1.17.5",
     "react-test-renderer": "^16.4.0",
+    "supertest": "^3.1.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.5"
   }
