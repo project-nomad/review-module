@@ -100,7 +100,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send avg_rating key', (done) => {
+  test('It should send a review object with a avg_rating key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasAvgRating = true;
       response.body.forEach( (review) => {
@@ -111,7 +111,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_date key', (done) => {
+  test('It should send a review object with a review_date key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewDate = true;
       response.body.forEach( (review) => {
@@ -122,7 +122,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_username key', (done) => {
+  test('It should send a review object with a review_username key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewUsername = true;
       response.body.forEach( (review) => {
@@ -133,7 +133,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send user_pic_url key', (done) => {
+  test('It should send a review object with a user_pic_url key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasUserPicURL = true;
       response.body.forEach( (review) => {
@@ -144,7 +144,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_body key', (done) => {
+  test('It should send a review object with a review_body key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewBody = true;
       response.body.forEach( (review) => {
@@ -155,7 +155,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send response_date key', (done) => {
+  test('It should send a review object with a response_date key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasResponseDate = true;
       response.body.forEach( (review) => {
@@ -166,7 +166,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send host_username key', (done) => {
+  test('It should send a review object with a host_username key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasHostUsername = true;
       response.body.forEach( (review) => {
@@ -177,7 +177,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send host_pic_url key', (done) => {
+  test('It should send a review object with a host_pic_url key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasHostPicURL = true;
       response.body.forEach( (review) => {
@@ -188,7 +188,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send response_body key', (done) => {
+  test('It should send a review object with a response_body key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasResponseBody = true;
       response.body.forEach( (review) => {
