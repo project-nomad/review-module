@@ -93,14 +93,14 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should contain 6 reviews', (done) => {
+  test('It should send 6 reviews', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       expect(response.body.length).toBe(6);
       done();
     });
   });
 
-  test('It should send avg_rating', (done) => {
+  test('It should send avg_rating key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasAvgRating = true;
       response.body.forEach( (review) => {
@@ -111,7 +111,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_date', (done) => {
+  test('It should send review_date key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewDate = true;
       response.body.forEach( (review) => {
@@ -122,7 +122,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_username', (done) => {
+  test('It should send review_username key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewUsername = true;
       response.body.forEach( (review) => {
@@ -133,7 +133,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send user_pic_url', (done) => {
+  test('It should send user_pic_url key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasUserPicURL = true;
       response.body.forEach( (review) => {
@@ -144,7 +144,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send review_body', (done) => {
+  test('It should send review_body key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasReviewBody = true;
       response.body.forEach( (review) => {
@@ -155,7 +155,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send response_date', (done) => {
+  test('It should send response_date key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasResponseDate = true;
       response.body.forEach( (review) => {
@@ -166,7 +166,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send host_username', (done) => {
+  test('It should send host_username key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasHostUsername = true;
       response.body.forEach( (review) => {
@@ -177,7 +177,7 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send host_pic_url', (done) => {
+  test('It should send host_pic_url key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasHostPicURL = true;
       response.body.forEach( (review) => {
@@ -188,13 +188,98 @@ describe('Test GET /reviews/listingId/2/reviews', () => {
     });
   });
 
-  test('It should send response_body', (done) => {
+  test('It should send response_body key', (done) => {
     request(app).get('/reviews/listingId/2/reviews').then((response) => {
       var hasResponseBody = true;
       response.body.forEach( (review) => {
         hasResponseBody = hasResponseBody && Object.keys(review).includes('response_body');
       });
       expect(hasResponseBody).toBe(true);
+      done();
+    });
+  });
+
+  test('It should send null response_date for responseless reviews', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      response.body.forEach( (review) => {
+        if (review.response_body === 'NULL') {
+          expect(review.response_date).toBe(null);    
+        }
+      });
+      done();
+    });
+  });
+
+  test('It should send valid response_date for reviews with responses', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      response.body.forEach( (review) => {
+        if (review.response_body !== 'NULL') {
+          expect((typeof review.response_date) === 'string').toBe(true);
+        }
+      });
+      done();
+    });
+  });
+
+  test('It should send valid avg_rating', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].avg_rating).toBe(2.8333);
+      done();
+    });
+  });
+
+  test('It should send valid review_date', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].review_date).toBe('June 2016');
+      done();
+    });
+  });
+
+  test('It should send valid review_username', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].review_username).toBe('Donnetta');
+      done();
+    });
+  });
+
+  test('It should send valid user_pic_url', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].user_pic_url).toBe('https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/3.jpg');
+      done();
+    });
+  });
+
+  test('It should send valid review_body', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].review_body).toBe('Mei novum possim salutandi an, ius ei tollit minimum, summo postea persequeris cu eos. Novum audiam audire qui ut. Praesent partiendo at mea, ut quaestio platonem est. Id eam appetere expetenda. Usu etiam vivendum ex.');
+      done();
+    });
+  });
+
+  test('It should send valid response_date', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].response_date).toBe('June 2016');
+      done();
+    });
+  });
+
+  test('It should send valid host_username', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].host_username).toBe('Tonda');
+      done();
+    });
+  });
+
+  test('It should send valid host_pic_url', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].host_pic_url).toBe('https://s3.us-east-2.amazonaws.com/hrsf96reviewmodule/99.jpg');
+      done();
+    });
+  });
+
+  test('It should send valid response_body', (done) => {
+    request(app).get('/reviews/listingId/2/reviews').then((response) => {
+      expect(response.body[0].response_body).toBe('Semper commodo accusam no vim, eos offendit scribentur liberavisse ea. Ea ludus nullam ceteros cum, an consul causae apeirian nam, usu dicam affert philosophia ea. Sed ei enim virtute dissentiet, an vel nobis accusam oporteat. Ne dolore postulant interpretaris quo, duo dicat necessitatibus ut, et vim justo fugit eleifend. Mel melius debitis et, veniam pertinacia sit ut.');
       done();
     });
   });
