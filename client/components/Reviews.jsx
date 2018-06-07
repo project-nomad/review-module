@@ -62,8 +62,8 @@ const Reviews = (props) => {
           <div>
 
             <ReviewHeader>
-              {/* <a href={review.user_pic_url}>[img]</a> */}
-              <ProfilePic src={review.user_pic_url}></ProfilePic>
+              <a href={review.user_pic_url}>[img]</a>
+              {/* <ProfilePic src={review.user_pic_url}></ProfilePic> */}
               <div>
                 <Username>{review.review_username}</Username>
                 <ReviewDate>{review.review_date}</ReviewDate>

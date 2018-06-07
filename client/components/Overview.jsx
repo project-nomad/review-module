@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from './Stars.jsx';
 import styled from 'styled-components';
 
 const HRule = styled.hr`
@@ -6,6 +7,11 @@ const HRule = styled.hr`
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: px solid rgba(255, 255, 255, 0.3);
+  margin-top: -5px;
+`;
+
+const OverviewTopLine = styled.div`
+  display: flex;
 `;
 
 const StarOverview = styled.div`
@@ -22,7 +28,7 @@ const Category = styled.div`
   color: rgb(68, 68, 68);
 `;
 
-const Stars = styled.div`
+const StarsPLACEHOLDER = styled.div`
   display: inline-block;
   float: right;
 `;
@@ -43,17 +49,18 @@ const Overview = (props) => {
 
   return (
     <div>
-      <h1>
-        {totalReviews} Reviews [{overview}] <br/>
-      </h1>
+      <OverviewTopLine>
+        <h2>{totalReviews} Reviews</h2>
+        <Stars rating={overview}></Stars>
+      </OverviewTopLine>
       <HRule />
       <StarOverview>
-        <Category>Accuracy <Stars>[{accuracy}]</Stars></Category>
-        <Category>Location <Stars>[{checkin}]</Stars></Category>
-        <Category>Communication <Stars>[{cleanliness}]</Stars></Category>
-        <Category>Check-in <Stars>[{communication}]</Stars></Category>
-        <Category>Cleanliness <Stars>[{location}]</Stars></Category>
-        <Category>Value <Stars>[{value}]</Stars></Category>
+        <Category>Accuracy <StarsPLACEHOLDER>[{accuracy}]</StarsPLACEHOLDER></Category>
+        <Category>Location <StarsPLACEHOLDER>[{checkin}]</StarsPLACEHOLDER></Category>
+        <Category>Communication <StarsPLACEHOLDER>[{cleanliness}]</StarsPLACEHOLDER></Category>
+        <Category>Check-in <StarsPLACEHOLDER>[{communication}]</StarsPLACEHOLDER></Category>
+        <Category>Cleanliness <StarsPLACEHOLDER>[{location}]</StarsPLACEHOLDER></Category>
+        <Category>Value <StarsPLACEHOLDER>[{value}]</StarsPLACEHOLDER></Category>
       </StarOverview>
     </div>
   );
