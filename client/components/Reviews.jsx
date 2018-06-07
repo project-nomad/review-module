@@ -4,7 +4,31 @@ import Response from './Response.jsx';
 
 const StyledReview = styled.div`
   margin-top: 20px;
-  border: 2px solid blue;
+`;
+
+const ReviewHeader = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Username = styled.div`
+  font-weight: bold;
+`;
+
+const ReviewDate = styled.div`
+  margin-top: 3px;
+  color: rgb(130, 130, 130);
+  font-weight: lighter;
+  font-size: smaller;
+`;
+
+const StarDiv = styled.div`
+  margin-top: 5px;
+  margin-bottom: 15px;
+`;
+
+const ReviewBody = styled.div`
+  line-height: 1.25em;
 `;
 
 const HRule = styled.hr`
@@ -12,6 +36,13 @@ const HRule = styled.hr`
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: px solid rgba(255, 255, 255, 0.3);
+`;
+
+const ProfilePic = styled.img`
+  margin-right: 15px;
+  border-radius: 30px;
+  height: 40px;
+  width: 40px;
 `;
 
 const Reviews = (props) => {
@@ -30,20 +61,21 @@ const Reviews = (props) => {
         <StyledReview key={i}>
           <div>
 
-            <div>
-              <a href={review.user_pic_url}>[img]</a>
+            <ReviewHeader>
+              {/* <a href={review.user_pic_url}>[img]</a> */}
+              <ProfilePic src={review.user_pic_url}></ProfilePic>
               <div>
-                {review.review_username}
-                {review.review_date}
+                <Username>{review.review_username}</Username>
+                <ReviewDate>{review.review_date}</ReviewDate>
               </div>
-            </div>
+            </ReviewHeader>
 
-            <div>
+            <StarDiv>
               [ STARS: {review.avg_rating} ]
-            </div>
+            </StarDiv>
 
             <div>
-              {review.review_body}
+              <ReviewBody>{review.review_body}</ReviewBody>
               {response}
             </div>
           </div>

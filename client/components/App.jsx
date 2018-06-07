@@ -7,6 +7,7 @@ import Reviews from './Reviews.jsx';
 const StyledApp = styled.div`
   max-width: 725px;
   font-family: calibre, sans-serif;
+  color: rgb(78, 78, 78);
 `;
 
 class App extends React.Component {

@@ -1,15 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledOverview = styled.div`
-  border: 2px solid black;
-`;
-
-// TODO
-const TopOverview = styled.h1`
-
-`;
-
 const HRule = styled.hr`
   border: 0;
   height: 0;
@@ -17,7 +8,6 @@ const HRule = styled.hr`
   border-bottom: px solid rgba(255, 255, 255, 0.3);
 `;
 
-// TODO
 const StarOverview = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -27,6 +17,8 @@ const StarOverview = styled.div`
 const Category = styled.div`
   flex: 0 49%;
   line-height: 2em;
+  font-size: large;
+  font-weight: lighter;
   color: rgb(68, 68, 68);
 `;
 
@@ -50,10 +42,10 @@ const Overview = (props) => {
     location + value) / (6);
 
   return (
-    <StyledOverview>
-      <TopOverview>
+    <div>
+      <h1>
         {totalReviews} Reviews [{overview}] <br/>
-      </TopOverview>
+      </h1>
       <HRule />
       <StarOverview>
         <Category>Accuracy <Stars>[{accuracy}]</Stars></Category>
@@ -63,7 +55,7 @@ const Overview = (props) => {
         <Category>Cleanliness <Stars>[{location}]</Stars></Category>
         <Category>Values <Stars>[{value}]</Stars></Category>
       </StarOverview>
-    </StyledOverview>
+    </div>
   );
 };
 
