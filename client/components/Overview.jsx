@@ -15,7 +15,7 @@ const Overview = (props) => {
 
   return (
     <div>
-      {totalReviews} Reviews [{overview} <br/>
+      {totalReviews} Reviews [{overview}] <br/>
       Accuracy [{accuracy}] <br/>
       Location [{checkin}] <br/>
       Communication [{cleanliness}] <br/>
