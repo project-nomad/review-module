@@ -71,7 +71,7 @@ const Reviews = (props) => {
             </ReviewHeader>
 
             <StarDiv>
-              [ STARS: {review.avg_rating} ]
+              [ STARS: {Math.ceil(review.avg_rating)} ]
             </StarDiv>
 
             <div>

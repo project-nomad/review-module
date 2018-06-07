@@ -30,16 +30,16 @@ const Stars = styled.div`
 
 const Overview = (props) => {
 
-  const accuracy = props.stats.avg_accuracy;
-  const checkin = props.stats.avg_checkin;
-  const cleanliness = props.stats.avg_cleanliness;
-  const communication = props.stats.avg_communication;
-  const location = props.stats.avg_location;
-  const value = props.stats.avg_value;
+  const accuracy = Math.ceil(props.stats.avg_accuracy);
+  const checkin = Math.ceil(props.stats.avg_checkin);
+  const cleanliness = Math.ceil(props.stats.avg_cleanliness);
+  const communication = Math.ceil(props.stats.avg_communication);
+  const location = Math.ceil(props.stats.avg_location);
+  const value = Math.ceil(props.stats.avg_value);
   
   const totalReviews = props.stats.total_reviews;
-  const overview = (accuracy + checkin + cleanliness + communication + 
-    location + value) / (6);
+  const overview = Math.ceil((accuracy + checkin + cleanliness + communication + 
+    location + value) / (6));
 
   return (
     <div>
