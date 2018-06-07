@@ -1,7 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Overview from './Overview.jsx';
 import Reviews from './Reviews.jsx';
+
+const StyledApp = styled.div`
+  max-width: 725px;
+  font-family: calibre, sans-serif;
+`;
 
 class App extends React.Component {
 
@@ -41,10 +47,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledApp>
         <Overview stats={this.state.stats} />
         <Reviews reviews={this.state.reviews} />
-      </div>
+      </StyledApp>
     );
   }
 }
