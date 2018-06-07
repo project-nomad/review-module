@@ -53,7 +53,7 @@ const Overview = (props) => {
         <Category>Communication <Stars>[{cleanliness}]</Stars></Category>
         <Category>Check-in <Stars>[{communication}]</Stars></Category>
         <Category>Cleanliness <Stars>[{location}]</Stars></Category>
-        <Category>Values <Stars>[{value}]</Stars></Category>
+        <Category>Value <Stars>[{value}]</Stars></Category>
       </StarOverview>
     </div>
   );
