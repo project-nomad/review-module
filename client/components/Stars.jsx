@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StarListContainer = styled.div`
+const StarListContainerOverview = styled.div`
   display: flex;
   padding: 20px;
-  margin-top: 6px;
+  margin-top: 5px;
+  font-size: 1.1em;
+`;
+
+const StarListContainerCategory = styled.div`
+  display: flex;
+  margin-top: 2px;
+  font-size: 0.9em;
 `;
 
 const StyledFilledStar = styled.div`
@@ -42,11 +49,14 @@ const Stars = (props) => {
       : starList.push(<StyledNoFilledStar>{starSVG}</StyledNoFilledStar>);
   }
 
-  return (
-    <StarListContainer>
-      {starList}
-    </StarListContainer>
-  );
+  if (props.type === 'overview') {
+    return (<StarListContainerOverview>{starList}</StarListContainerOverview>);
+  } else if (props.type === 'category') {
+    return (<StarListContainerCategory>{starList}</StarListContainerCategory>);
+  } else {
+    return <div>test</div>;
+  }
+
 };
 
 export default Stars;

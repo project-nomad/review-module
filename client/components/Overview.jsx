@@ -28,11 +28,11 @@ const Category = styled.div`
   color: rgb(68, 68, 68);
 `;
 
-const StarsPLACEHOLDER = styled.div`
+const StarsBoxer = styled.div`
   display: inline-block;
   float: right;
+  font-size: 1em;
 `;
-
 
 const Overview = (props) => {
 
@@ -51,16 +51,47 @@ const Overview = (props) => {
     <div>
       <OverviewTopLine>
         <h2>{totalReviews} Reviews</h2>
-        <Stars rating={overview}></Stars>
+        <Stars rating={overview} type="overview" />
       </OverviewTopLine>
       <HRule />
       <StarOverview>
-        <Category>Accuracy <StarsPLACEHOLDER>[{accuracy}]</StarsPLACEHOLDER></Category>
-        <Category>Location <StarsPLACEHOLDER>[{checkin}]</StarsPLACEHOLDER></Category>
-        <Category>Communication <StarsPLACEHOLDER>[{cleanliness}]</StarsPLACEHOLDER></Category>
-        <Category>Check-in <StarsPLACEHOLDER>[{communication}]</StarsPLACEHOLDER></Category>
-        <Category>Cleanliness <StarsPLACEHOLDER>[{location}]</StarsPLACEHOLDER></Category>
-        <Category>Value <StarsPLACEHOLDER>[{value}]</StarsPLACEHOLDER></Category>
+
+        <Category>Accuracy
+          <StarsBoxer>
+            <Stars rating={accuracy} type="category" />
+          </StarsBoxer>
+        </Category>
+
+        <Category>Location
+          <StarsBoxer>
+            <Stars rating={checkin} type="category" />
+          </StarsBoxer>
+        </Category>
+
+        <Category>Communication
+          <StarsBoxer>
+            <Stars rating={cleanliness} type="category" />
+          </StarsBoxer>
+        </Category>
+
+        <Category>Check-in
+          <StarsBoxer>
+            <Stars rating={communication} type="category" />
+          </StarsBoxer>
+        </Category>
+
+        <Category>Cleanliness
+          <StarsBoxer>
+            <Stars rating={location} type="category" />
+          </StarsBoxer>
+        </Category>
+
+        <Category>Value
+          <StarsBoxer>
+            <Stars rating={value} type="category" />
+          </StarsBoxer>
+        </Category>
+
       </StarOverview>
     </div>
   );
