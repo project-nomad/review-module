@@ -7,6 +7,8 @@ import Reviews from './Reviews.jsx';
 const StyledApp = styled.div`
   max-width: 725px;
   font-family: calibre, sans-serif;
+  font-weight: lighter;
+  letter-spacing: 0.3px;
   color: rgb(78, 78, 78);
 `;
 

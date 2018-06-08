@@ -5,12 +5,18 @@ const StarListContainerOverview = styled.div`
   display: flex;
   padding: 20px;
   margin-top: 5px;
-  font-size: 1.1em;
+  font-size: 1.2em;
 `;
 
 const StarListContainerCategory = styled.div`
   display: flex;
   margin-top: 2px;
+  font-size: 1em;
+`;
+
+const StarListContainerReview = styled.div`
+  display: flex;
+  margin-top: 15px;
   font-size: 0.9em;
 `;
 
@@ -54,7 +60,7 @@ const Stars = (props) => {
   } else if (props.type === 'category') {
     return (<StarListContainerCategory>{starList}</StarListContainerCategory>);
   } else {
-    return <div>test</div>;
+    return (<StarListContainerReview>{starList}</StarListContainerReview>);
   }
 
 };

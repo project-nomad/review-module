@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import Stars from './Stars.jsx';
 import Response from './Response.jsx';
+import styled from 'styled-components';
 
 const StyledReview = styled.div`
   margin-top: 20px;
@@ -28,7 +29,7 @@ const StarDiv = styled.div`
 `;
 
 const ReviewBody = styled.div`
-  line-height: 1.25em;
+  line-height: 1.45em;
 `;
 
 const HRule = styled.hr`
@@ -62,8 +63,8 @@ const Reviews = (props) => {
           <div>
 
             <ReviewHeader>
-              <a href={review.user_pic_url}>[img]</a>
-              {/* <ProfilePic src={review.user_pic_url}></ProfilePic> */}
+              {/* <a href={review.user_pic_url}>[img]</a> */}
+              <ProfilePic src={review.user_pic_url}></ProfilePic>
               <div>
                 <Username>{review.review_username}</Username>
                 <ReviewDate>{review.review_date}</ReviewDate>
@@ -71,7 +72,7 @@ const Reviews = (props) => {
             </ReviewHeader>
 
             <StarDiv>
-              [ STARS: {Math.ceil(review.avg_rating)} ]
+              <Stars rating={Math.ceil(review.avg_rating)}/>
             </StarDiv>
 
             <div>

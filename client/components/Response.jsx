@@ -13,7 +13,7 @@ const ResponseName = styled.div`
 `;
 
 const ResponseBody = styled.div`
-  line-height: 1.25em;
+  line-height: 1.45em;
   margin-bottom: 10px;
 `;
 
@@ -33,8 +33,8 @@ const ProfilePic = styled.img`
 const Response = (props) => {
   return (
     <StyledResponse>
-      <a href={props.url}>[img]</a>
-      {/* <ProfilePic src={props.url}></ProfilePic> */}
+      {/* <a href={props.url}>[img]</a> */}
+      <ProfilePic src={props.url}></ProfilePic>
       <div>
         <ResponseName>Response from {props.name}:</ResponseName>
         <ResponseBody>{props.body}</ResponseBody>
