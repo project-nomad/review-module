@@ -23,7 +23,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component MOUNTED');
     this.getOverview();
     this.getReviews();
   }
