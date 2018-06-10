@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/../public')));
 
 // gets aggregate overview ratings
-app.get('/reviews/listingId/:listingId', (req, res) => {
+app.get('/listings/:listingId', (req, res) => {
   db.getOverview( req.params.listingId, (err, data) => {
     if (err) {
       res.status(500).end();
@@ -18,7 +18,7 @@ app.get('/reviews/listingId/:listingId', (req, res) => {
 });
 
 // gets all reviews
-app.get('/reviews/listingId/:listingId/reviews', (req, res) => {
+app.get('/listings/:listingId/reviews', (req, res) => {
   db.getReviews( req.params.listingId, (err, data) => {
     if (err) {
       res.status(500).end();

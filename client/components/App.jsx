@@ -23,13 +23,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component MOUNTED');
     this.getOverview();
     this.getReviews();
   }
 
   getOverview() {
-    axios.get('/reviews/listingId/2') // TODO manually checks listing 2 atm
+    axios.get('/listings/2') // TODO manually checks listing 2 atm
       .then((response) => {
         this.setState({stats: response.data[0]});
       })
@@ -39,7 +38,7 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/reviews/listingId/2/reviews') // TODO manually checks listing 2 atm
+    axios.get('/listings/2/reviews') // TODO manually checks listing 2 atm
       .then((response) => {
         this.setState({reviews: response.data});
       })

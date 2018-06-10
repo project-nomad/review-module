@@ -51,8 +51,8 @@ const Stars = (props) => {
 
   for (var i = 0; i < 5; i++) {
     (i < props.rating)
-      ? starList.push(<StyledFilledStar>{starSVG}</StyledFilledStar>)
-      : starList.push(<StyledNoFilledStar>{starSVG}</StyledNoFilledStar>);
+      ? starList.push(<StyledFilledStar key={i}>{starSVG}</StyledFilledStar>)
+      : starList.push(<StyledNoFilledStar key={i}>{starSVG}</StyledNoFilledStar>);
   }
 
   if (props.type === 'overview') {
