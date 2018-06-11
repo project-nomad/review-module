@@ -44,7 +44,7 @@ const Overview = (props) => {
   const value = Math.ceil(props.stats.avg_value);
   
   const totalReviews = props.stats.total_reviews;
-  const overview = Math.ceil((accuracy + checkin + cleanliness + communication + 
+  const overview = Math.floor((accuracy + checkin + cleanliness + communication + 
     location + value) / (6));
 
   return (
