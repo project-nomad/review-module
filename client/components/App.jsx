@@ -23,8 +23,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getOverview(window.location.pathname.split('/')[2]);
-    this.getReviews(window.location.pathname.split('/')[2]);
+    this.getOverview(this.props.listingId);
+    this.getReviews(this.props.listingId);
   }
 
   getOverview(id) {
