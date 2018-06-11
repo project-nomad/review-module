@@ -33,7 +33,9 @@ const ProfilePic = styled.img`
 const Response = (props) => {
   return (
     <StyledResponse>
-      <ProfilePic src={props.url}></ProfilePic>
+      <div>
+        <ProfilePic src={props.url}></ProfilePic>
+      </div>
       <div>
         <ResponseName>Response from {props.name}:</ResponseName>
         <ResponseBody>{props.body}</ResponseBody>
