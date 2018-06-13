@@ -4,6 +4,7 @@ const db = require('../database/index');
 const app = express();
 
 // resolves a specific listing requested
+app.use('/', express.static(path.join(__dirname, '/../public')));
 app.use('/listings/:id', express.static(path.join(__dirname, '/../public')));
 
 // gets aggregate overview ratings
@@ -12,6 +13,7 @@ app.get('/listings/:listingId/overviews', (req, res) => {
     if (err) {
       res.status(500).end();
     } else {
+      res.header('Access-Control-Allow-Origin', '*');
       res.status(200);
       res.send(data);
     }
@@ -24,6 +26,7 @@ app.get('/listings/:listingId/reviews', (req, res) => {
     if (err) {
       res.status(500).end();
     } else {
+      res.header('Access-Control-Allow-Origin', '*');
       res.status(200);
       res.send(data);
     }
