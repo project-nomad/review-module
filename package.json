@@ -24,6 +24,7 @@
   "devDependencies": {
     "babel-jest": "^23.0.1",
     "babel-loader": "^7.1.4",
+    "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "csv-parse": "^2.4.0",
