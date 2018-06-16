@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "serve": "nodemon server/index.js",
+    "serve": "node server/index.js",
     "test": "jest --forceExit --coverage"
   },
   "dependencies": {
