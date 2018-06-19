@@ -33,4 +33,10 @@ app.get('/listings/:listingId/reviews', (req, res) => {
   });
 });
 
+app.post();
+
+app.put();
+
+app.delete();
+
 module.exports = app;
