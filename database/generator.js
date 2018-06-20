@@ -1,16 +1,22 @@
 // How to run: node generator.js
-const mysql = require('mysql');
-const config = require('./config');
 const fs = require('fs');
 const parse = require('csv-parse');
+const pg = require('pg');
+const connectionString = 'postgres://localhost:5432/project_nomad_reviews';
 
-const connection = mysql.createConnection(config);
-connection.connect();
+const client = new pg.Client(connectionString);
+
+client.connect((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('you have succeeded in seeding')
+  }
+});
 
 var listingsCSV = fs.readFileSync('../sample_data/listings.csv');
 var reviewsCSV = fs.readFileSync('../sample_data/reviews.csv');
 var usersCSV = fs.readFileSync('../sample_data/users.csv');
-
 parse(usersCSV, function(err, output) {
   if (err) {
     throw err;
@@ -25,7 +31,7 @@ parse(usersCSV, function(err, output) {
       const query = `INSERT INTO users (id, username, profile_pic_id) 
         VALUES (${id}, '${username}', ${picID});`;
 
-      connection.query(query, (err) => {
+      client.query(query, (err) => {
         if (err) {
           throw err;
         }
@@ -42,7 +48,7 @@ parse(listingsCSV, function(err, output) {
     for (var i = 1; i < output.length; i++) {
       var id = parseInt(output[i][0]);
       const query = `INSERT INTO listings (id) VALUES (${id});`;
-      connection.query(query, (err) => {
+      client.query(query, (err) => {
         if (err) {
           throw err;
         }
@@ -88,20 +94,20 @@ parse(reviewsCSV, function(err, output) {
         id, listing_id, rating_accuracy, rating_communication, rating_cleanliness,
         rating_location, rating_checkin, rating_value, review_user_id, review_body,
         review_date, response_date, response_owner_id, response_body
-      ) VALUES (
+      ) 
+      VALUES (
         ${id}, ${listingID}, ${ratingAccuracy}, ${ratingComm}, ${ratingClean},
-        ${ratingLocation}, ${ratingCheckin}, ${reviewValue}, ${reviewUserID},
-        "${reviewBody}", ${reviewDate}, ${responseDate}, ${responseOwnerID},
-        "${responseBody}"
+        ${ratingLocation}, ${ratingCheckin}, ${reviewValue}, ${reviewUserID}, '${reviewBody}', 
+        ${reviewDate}, ${responseDate}, ${responseOwnerID}, '${reviewBody}'
       );`;
 
-      connection.query(query, (err) => {
+      client.query(query, (err) => {
         if (err) {
           throw err;
         }
       });
     }
 
-    connection.end(); // close connection after insertions are done
+    // client.end(); // close connection after insertions are done
   }
 });

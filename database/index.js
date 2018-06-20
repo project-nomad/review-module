@@ -1,8 +1,19 @@
-const mysql = require('mysql');
-const config = require('./config');
+// const mysql = require('mysql');
+// const config = require('./config');
 
-const connection = mysql.createConnection(config);
-connection.connect();
+const pg = require('pg');
+const connectionString = 'postgres://localhost:5432/reviews';
+// const connection = mysql.createConnection(config);
+// connection.connect();
+
+const client = new pg.Client(connectionString);
+client.connect((err) => {
+  if (err) {
+    console.log('you have error', err)
+  } else {
+    console.log('you have success DB')
+  }
+});
 
 var getOverview = (listingId, callback) => {
   var query = `
@@ -18,7 +29,7 @@ var getOverview = (listingId, callback) => {
     WHERE listing_id = ${listingId}
   `;
 
-  connection.query( query, (err, results) => {
+  client.query( query, (err, results) => {
     if (err) {
       callback(err, null);
     } else {
@@ -52,7 +63,7 @@ var getReviews = (listingId, callback) => {
     WHERE listing_id = ${listingId}
   `;
   
-  connection.query( query, (err, results) => {
+  client.query( query, (err, results) => {
     if (err) {
       callback(err, null);
     } else {
