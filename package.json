@@ -16,7 +16,11 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "fast-csv": "^2.4.1",
     "mysql": "^2.15.0",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "styled-components": "^3.3.2"

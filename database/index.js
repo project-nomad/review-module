@@ -9,9 +9,9 @@ const connectionString = 'postgres://localhost:5432/reviews';
 const client = new pg.Client(connectionString);
 client.connect((err) => {
   if (err) {
-    console.log('you have error', err)
+    console.log('you have error', err);
   } else {
-    console.log('you have success DB')
+    console.log('you have success DB');
   }
 });
 
