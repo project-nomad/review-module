@@ -25,3 +25,6 @@ build/
 dist/
 public/bundle.js
 public/bundle-reviews.js
+database/listing_sample.csv
+database/reviews_sample.csv
+database/user_sample.csv
