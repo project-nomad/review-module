@@ -1,25 +1,23 @@
 -- How to run (in psql): \i /Users/kianna/Desktop/review-module/schema.sql
 
-DROP DATABASE IF EXISTS project_nomad_reviews1;
+DROP DATABASE IF EXISTS project_nomad_reviews;
 
-CREATE DATABASE project_nomad_reviews1;
+CREATE DATABASE project_nomad_reviews;
 
-\c project_nomad_reviews1;
+\c project_nomad_reviews;
 
 CREATE TABLE listings (
-  id INT NOT NULL,
-  PRIMARY KEY (id)
+  id SERIAL PRIMARY KEY
 );
 
 CREATE TABLE users (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
-  profile_pic_id INT NOT NULL,
-  PRIMARY KEY (id)
+  profile_pic_id INT NOT NULL
 );
 
 CREATE TABLE reviews (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   listing_id INT NOT NULL,
 
   rating_accuracy INT DEFAULT 0,
@@ -31,14 +29,16 @@ CREATE TABLE reviews (
 
   review_user_id INT NOT NULL,
   review_body TEXT,
-  review_date DATE NOT NULL,
+  review_date TEXT,
 
-  response_date DATE DEFAULT NULL,
+  response_date TEXT,
   response_owner_id INT DEFAULT NULL,
   response_body TEXT,
 
-  PRIMARY KEY (id),
   FOREIGN KEY (listing_id) REFERENCES listings(id),
   FOREIGN KEY (review_user_id) REFERENCES users(id),
   FOREIGN KEY (response_owner_id) REFERENCES users(id) 
 );
+
+
+
