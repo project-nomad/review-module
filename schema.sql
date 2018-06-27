@@ -19,7 +19,7 @@ CREATE TABLE users (
 CREATE TABLE reviews (
   id SERIAL PRIMARY KEY,
   listing_id INT NOT NULL,
-
+  
   rating_accuracy INT DEFAULT 0,
   rating_communication INT DEFAULT 0,
   rating_cleanliness INT DEFAULT 0,
@@ -40,5 +40,6 @@ CREATE TABLE reviews (
   FOREIGN KEY (response_owner_id) REFERENCES users(id) 
 );
 
+CREATE INDEX listing_id ON reviews (listing_id);
 
 

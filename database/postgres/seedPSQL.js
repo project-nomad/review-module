@@ -16,7 +16,7 @@ client.connect((err) => {
 
 /*************************** LISTINGS DATA TO PSQL *****************************/
 console.time('listings copy')
-const query = `COPY listings (id) FROM '/Users/Kianna/Desktop/review-module/database/listing_sample.csv' DELIMITER ',' CSV HEADER`;
+const query = `COPY listings (id) FROM '/Users/Kianna/Desktop/review-module/database/postgres/sample_data_cql/listing_sample.csv' DELIMITER ',' CSV HEADER`;
 client.query(query, (err) => {
   if (err) {
     throw err;
@@ -27,7 +27,7 @@ client.query(query, (err) => {
 
 /**************************** USERS DATA TO PSQL *******************************/
 console.time('users copy');
-const query2 = `COPY users (username,profile_pic_id) FROM '/Users/Kianna/Desktop/review-module/database/user_sample.csv' DELIMITER ',' CSV HEADER`;
+const query2 = `COPY users (username,profile_pic_id) FROM '/Users/Kianna/Desktop/review-module/database/postgres/sample_data_cql/user_sample.csv' DELIMITER ',' CSV HEADER`;
 client.query(query2, (err) => {
   if (err) {
     throw err;
@@ -38,7 +38,7 @@ client.query(query2, (err) => {
 
 /**************************** REVIEWS DATA TO PSQL ******************************/
 console.time('reviews copy');
-const query3 = `COPY reviews (listing_id,rating_accuracy,rating_communication,rating_cleanliness,rating_location,rating_checkin,rating_value,review_user_id,review_body,review_date,response_date,response_owner_id,response_body) FROM '/Users/Kianna/Desktop/review-module/database/reviews_sample.csv' DELIMITER ',' CSV HEADER`
+const query3 = `COPY reviews (listing_id,rating_accuracy,rating_communication,rating_cleanliness,rating_location,rating_checkin,rating_value,review_user_id,review_body,review_date,response_date,response_owner_id,response_body) FROM '/Users/Kianna/Desktop/review-module/database/postgres/sample_data_cql/reviews_sample.csv' DELIMITER ',' CSV HEADER`
 client.query(query3, (err) => {
   if (err) {
     throw err;
