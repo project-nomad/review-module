@@ -30,7 +30,7 @@ class App extends React.Component {
   getOverview(id) {
     axios.get(`/listings/${id}/overviews`)
       .then((response) => {
-        this.setState({stats: response.data[0]});
+        this.setState({stats: response.data.rows[0]});
       })
       .catch((err) => {
         throw err;
@@ -40,7 +40,7 @@ class App extends React.Component {
   getReviews(id) {
     axios.get(`/listings/${id}/reviews`)
       .then((response) => {
-        this.setState({reviews: response.data});
+        this.setState({reviews: response.data.rows});
       })
       .catch((err) => {
         throw err;

@@ -65,7 +65,7 @@ const Reviews = (props) => {
             <ReviewHeader>
               <ProfilePic src={review.user_pic_url}></ProfilePic>
               <div>
-                <Username>{review.review_username}</Username>
+                <Username>{review.username}</Username>
                 <ReviewDate>{review.review_date}</ReviewDate>
               </div>
             </ReviewHeader>
